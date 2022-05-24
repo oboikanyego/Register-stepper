@@ -1,0 +1,22 @@
+<form #cardDetailsform="ngForm">
+    
+    <mat-form-field appearance="outline">
+        <mat-label>Card Number</mat-label>
+        <input matInput placeholder="name" type="number" minlength="13" maxlength="13" required name="CardNumber" [(ngModel)]="cardDetails.payload.CardNumber">
+        <mat-error *ngIf="cardDetailsform.invalid && cardDetails.payload.touched">Enter card number</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Expiry Date</mat-label>
+        <input matInput minlength="4" maxlength="4" required name="ExpiryDate" [(ngModel)]="cardDetails.payload.ExpiryDate">
+        <mat-error *ngIf="cardDetailsform.invalid && cardDetails.payload.touched">Enter card number</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>CVC Number</mat-label>
+        <input matInput required name="CVC" type="number" minlength="3" maxlength="3" [(ngModel)]="cardDetails.payload.CVC">
+        <mat-error *ngIf="cardDetailsform.invalid && cardDetails.payload.touched">Enter CVC</mat-error>
+    </mat-form-field>
+    <div fxLayout="row" fxLayoutAlign="space-between center" >
+        <button mat-button matStepperPrevious (click)="submit()">Back</button>
+        <button mat-button matStepperNext (click)="submit()" [disabled]="cardDetailsform.invalid">Next</button>
+    </div>
+</form>

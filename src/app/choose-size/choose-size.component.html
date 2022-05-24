@@ -1,0 +1,41 @@
+<form class="form1" #chooseSizeForm="ngForm" >
+    <!-- (ngSubmit)="submit()" -->
+   
+    <mat-form-field appearance="outline" >
+        <mat-label>Choose Size</mat-label>
+        <mat-select disableRipple name="size" [(ngModel)]="choosesize.payload.size" required>
+           
+            <mat-option value="{{br}}" *ngFor="let br of packageName">{{br}}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="chooseSizeForm.touched && chooseSizeForm.invalid">Choose size</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Choose Brand</mat-label>
+        <mat-select disableRipple name="brand" [(ngModel)]="choosesize.payload.brand"  required>
+           
+            <mat-option value="{{br}}" *ngFor="let br of Brand">{{br}}</mat-option>
+            <!-- <mat-option value="sunlight">SURF</mat-option>
+            <mat-option value="arieal">ARIEAL</mat-option>
+            <mat-option value="vanish">VANISH</mat-option>
+            <mat-option value="surf">SUNLIGHT</mat-option> -->
+        </mat-select>
+        <mat-error [hidden]="chooseSizeForm.invalid || chooseSizeForm.pristine">Choose size</mat-error>
+    </mat-form-field>
+    <div fxLayout="row" fxLayoutAlign="start center" > 
+        <mat-form-field appearance="outline">
+            <mat-label>Amount</mat-label>
+            <input matInput placeholder="1" minValue=1; required type="number"name="default" [(ngModel)]="choosesize.payload.amount">
+            <mat-error *ngIf="chooseSizeForm.touched && chooseSizeForm.invalid">Choose size</mat-error>
+        </mat-form-field>
+        <div fxLayout="column" fxLayoutAlign="space-between center" style="width: 30px;height: 62px;"> 
+            <a href="#" (click)="Inc()"><mat-icon>add</mat-icon></a>
+            <a href="#" (click)="Dec()"><mat-icon>remove</mat-icon></a>
+        </div>
+
+    </div>
+    
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+        <button mat-stroked-button [disabled]="chooseSizeForm.invalid" (click)="chooseSizeForm.reset()">Clear</button>
+        <button mat-raised-button matStepperNext (click)="submit()" [disabled]="chooseSizeForm.invalid">Next</button>
+    </div>
+</form>

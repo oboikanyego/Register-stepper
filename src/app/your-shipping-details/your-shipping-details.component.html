@@ -1,0 +1,27 @@
+<form #shippingDetailsForm="ngForm">
+    
+    <mat-form-field appearance="outline">
+        <mat-label>House Number</mat-label>
+        <input matInput placeholder="name" required name="HouseNumber" type="number" [(ngModel)]="shippingDetails.payload.HouseNumber">
+        <mat-error *ngIf="shippingDetailsForm.invalid && shippingDetailsForm.touched">Please Enter House Number</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Street address</mat-label>
+        <input matInput required name="StreetAddress" type="text" [(ngModel)]="shippingDetails.payload.StreetAddress">
+        <mat-error *ngIf="shippingDetailsForm.invalid && shippingDetailsForm.touched">Please Enter Street Address</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Town</mat-label>
+        <input matInput required name="Town" type="text" [(ngModel)]="shippingDetails.payload.Town">
+        <mat-error *ngIf="shippingDetailsForm.invalid && shippingDetailsForm.touched">Please Enter Town</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Area Code</mat-label>
+        <input matInput required name="AreaCode" minlength="4" maxlength="4" type="number" [(ngModel)]="shippingDetails.payload.AreaCode">
+        <mat-error *ngIf="shippingDetailsForm.invalid && shippingDetailsForm.touched">Please Enter Area Code</mat-error>
+    </mat-form-field>
+    <div fxLayout="row" fxLayoutAlign="space-between center" >
+        <button mat-button matStepperPrevious >Back</button>
+        <button mat-button matStepperNext (click)="submit()" [disabled]="shippingDetailsForm.invalid">Next</button>
+    </div>
+</form>

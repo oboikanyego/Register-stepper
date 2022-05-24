@@ -1,0 +1,34 @@
+<form #yourDetailsForm="ngForm">
+    <mat-form-field appearance="outline">
+        <mat-label>First Name</mat-label>
+        <input matInput placeholder="name" name="firstName" type="text" [(ngModel)]="yourDetails.payload.firstName" type="text" required>
+        <mat-error *ngIf="yourDetailsForm.touched && yourDetailsForm.invalid">Choose size</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Surname</mat-label>
+        <input matInput  required name="surname" type="text" [(ngModel)]="yourDetails.payload.surname">
+        <mat-error *ngIf="yourDetailsForm.invalid && yourDetailsForm.touched ">Enter Surname</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Phone Number</mat-label>
+        <input matInput required name="phoneNumber" type="tel" [(ngModel)]="yourDetails.payload.phoneNumber">
+        <mat-error *ngIf="yourDetailsForm.invalid && yourDetailsForm.touched ">Enter Phone Number</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Date of Delivery</mat-label>
+        <input matInput [matDatepicker]="picker" name="dateOfDelivery"  [(ngModel)]="yourDetails.payload.dateOfDelivery">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="yourDetailsForm.invalid && yourDetailsForm.touched">Please select Date of Delivery</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Time of Arrival</mat-label>
+        <input matInput required name="timeOfArrival"  min="09:00" max="18:00" type="time"[(ngModel)]="yourDetails.payload.timeOfArrival">
+        <mat-error *ngIf="yourDetailsForm.invalid && yourDetailsForm.touched">Please select time of Arrival</mat-error>
+    </mat-form-field>
+    <div fxLayout="row" fxLayoutAlign="space-between center" >
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext (click)="submit()" [disabled]="yourDetailsForm.invalid">Next</button>
+    </div>
+</form>

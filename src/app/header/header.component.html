@@ -1,0 +1,48 @@
+<header>
+    <div fxLayout="row" fxLayoutAlign="start center" style="height: 63px;">
+        <img src="https://masicoceke.web.app/assets/masicoceke-logo.png" alt="logo" style="width: 65px;">
+        <div fxLayout="row" fxLayoutAlign="start center">
+            <h1>Masicoceke</h1>
+            <p>| Cleanliness is next to Godliness |</p>
+        </div>
+    </div>
+</header>
+<div fxLayout="row" fxLayoutAlign="start center" fxLayout.lt-md="column" fxLayout.xs="column">
+    <div fxLayout="column" fxLayoutAlign="center center" style="width: 100%;height:91.2vh;">
+        <h4>Always keep your clothes clean with our amazing washing powder</h4>
+        <img src="https://masicoceke.web.app/assets/masicoceke-logo.png" alt="pic" style="height:300px">
+        <h1>Masicoceke</h1>
+        <p>| Washing Powder |</p>
+        <p>Cleanliness is next to Godliness</p>
+    </div>
+    <div  fxLayout="column" fxLayoutAlign="center start" style='width:100%;height:91.2vh;'>
+        <mat-stepper orientation="vertical" #stepper [linear]="true">
+            <mat-step>
+                <ng-template matStepLabel>choose Size</ng-template>
+                <app-choose-size (object)="submit($event)"></app-choose-size>
+            </mat-step>
+            <mat-step>
+                <ng-template matStepLabel>Your details</ng-template>
+                <app-yourdetails (detail)="submit($event)"></app-yourdetails>
+            </mat-step>
+            <mat-step>
+                <ng-template matStepLabel>Your Shipping Details</ng-template>
+                <app-your-shipping-details (ship)="submit($event)"></app-your-shipping-details>
+            </mat-step>
+            <mat-step>
+                <ng-template matStepLabel>Enter card details</ng-template>
+                <app-entercarddetails (card)="submit($event)"></app-entercarddetails>
+            </mat-step>
+            <mat-step>
+                <ng-template matStepLabel>Confirm Details</ng-template>
+                <p>You are now done,Displays all the datails</p>
+                <div fxLayout="row" fxLayoutAlign="space-between center" >
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button>Confirm Detals</button>
+                </div>
+                <!--(click)="Toarray()" 
+                    [disabled]="form1.invalid && form2.invalid && form3.invalid && form4.invalid" -->
+            </mat-step>
+        </mat-stepper>
+    </div>
+</div>

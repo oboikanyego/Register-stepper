@@ -1,0 +1,44 @@
+header{
+    color:white;
+    background-color:#07496f;
+    height: 65px;
+    h1,h4,p{
+        font-weight: 200;
+    }
+    h1 {
+        padding-right: 5px;
+    }
+}
+div{
+    h1,p{ 
+        margin:0;
+    }
+    .mat-stepper-vertical{
+        width:100%;
+        height:100%;
+        color: black;
+    }
+    .size{
+        width:110px;
+        height:89px
+    }
+    .size2{
+        width:90px;
+        height:89px;
+    }
+}
+.mat-stepper-vertical {
+    margin-right: 31px;
+    
+}
+mat-form-field{
+    margin:10px;
+    height: 65px;
+
+}
+::ng-deep.mat-step-header{
+    pointer-events: none;
+}
+  mat-stepper{
+    background-color:#073855;
+}
